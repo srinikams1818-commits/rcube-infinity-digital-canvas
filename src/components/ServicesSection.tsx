@@ -1,55 +1,47 @@
 import { motion } from "framer-motion";
-import { 
-  Search, 
-  Share2, 
-  Target, 
-  Globe, 
-  Palette, 
-  Mail,
-  ArrowUpRight
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import serviceSeo from "@/assets/service-seo.png";
+import serviceSocial from "@/assets/service-social.png";
+import serviceAds from "@/assets/service-ads.png";
+import serviceWeb from "@/assets/service-web.png";
+import serviceBranding from "@/assets/service-branding.png";
+import serviceEmail from "@/assets/service-email.png";
 
 const services = [
   {
-    icon: Search,
+    image: serviceSeo,
     title: "SEO & Local SEO",
     description: "Dominate search results in Tamil Nadu with our data-driven SEO strategies that drive organic traffic and leads.",
-    color: "brand-purple",
     gradient: "from-brand-purple to-brand-blue",
   },
   {
-    icon: Share2,
+    image: serviceSocial,
     title: "Social Media Marketing",
     description: "Build a powerful social presence that engages your audience and converts followers into customers.",
-    color: "brand-orange",
     gradient: "from-brand-orange to-brand-purple",
   },
   {
-    icon: Target,
+    image: serviceAds,
     title: "Google & Meta Ads",
     description: "Maximize ROI with precision-targeted advertising campaigns that reach your ideal customers.",
-    color: "brand-blue",
     gradient: "from-brand-blue to-brand-purple",
   },
   {
-    icon: Globe,
+    image: serviceWeb,
     title: "Web Design & Development",
     description: "Create stunning, high-performance websites that captivate visitors and drive conversions.",
-    color: "brand-purple",
     gradient: "from-brand-purple to-brand-orange",
   },
   {
-    icon: Palette,
+    image: serviceBranding,
     title: "Creative Branding",
     description: "Develop a distinctive brand identity that sets you apart and resonates with your target audience.",
-    color: "brand-orange",
     gradient: "from-brand-orange to-brand-blue",
   },
   {
-    icon: Mail,
+    image: serviceEmail,
     title: "Email & Automation",
     description: "Nurture leads and boost retention with intelligent email marketing and automation workflows.",
-    color: "brand-blue",
     gradient: "from-brand-blue to-brand-orange",
   },
 ];
@@ -102,29 +94,31 @@ const ServicesSection = () => {
               <div className={`absolute -inset-0.5 bg-gradient-to-r ${service.gradient} rounded-2xl opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-500`} />
               
               {/* Card */}
-              <div className="relative glass-strong rounded-2xl p-8 h-full border border-border/50 group-hover:border-border transition-colors">
-                {/* Icon */}
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon className="w-7 h-7 text-primary-foreground" />
+              <div className="relative glass-strong rounded-2xl overflow-hidden h-full border border-border/50 group-hover:border-border transition-colors">
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-gradient transition-all">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {service.description}
-                </p>
+                <div className="p-6 pt-2">
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-gradient transition-all">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    {service.description}
+                  </p>
 
-                {/* Link */}
-                <div className="flex items-center gap-2 text-sm font-semibold text-brand-purple group-hover:text-brand-orange transition-colors">
-                  Learn More
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </div>
-
-                {/* Floating Icon Background */}
-                <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                  <service.icon className="w-32 h-32" />
+                  {/* Link */}
+                  <div className="flex items-center gap-2 text-sm font-semibold text-brand-purple group-hover:text-brand-orange transition-colors">
+                    Learn More
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </div>
                 </div>
               </div>
             </motion.div>

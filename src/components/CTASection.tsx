@@ -1,13 +1,24 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ctaBackground from "@/assets/cta-background.png";
 
 const CTASection = () => {
   return (
     <section className="py-24 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={ctaBackground} 
+          alt="Digital growth visualization" 
+          className="w-full h-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background" />
+      </div>
+      
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-indigo via-brand-purple/50 to-brand-indigo" />
-      <div className="absolute inset-0 bg-gradient-mesh opacity-50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-indigo/60 via-brand-purple/30 to-brand-indigo/60" />
+      <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
       
       {/* Floating Bubbles */}
       <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-brand-purple/30 rounded-full blur-2xl animate-float" />
