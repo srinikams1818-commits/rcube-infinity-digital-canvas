@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle, Zap, Target, TrendingUp } from "lucide-react";
+import aboutImage from "@/assets/about-image.png";
 
 const features = [
   { icon: Zap, text: "Data-Driven Strategies" },
@@ -30,35 +31,43 @@ const AboutSection = () => {
             
             {/* Main Image Container */}
             <div className="relative">
-              {/* Back Layer */}
+              {/* Back Layer - Floating Element */}
               <motion.div
                 animate={{ y: [-5, 5, -5] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -left-4 w-48 h-48 glass rounded-2xl overflow-hidden"
+                className="absolute -top-4 -left-4 w-48 h-48 glass rounded-2xl overflow-hidden z-10"
               >
                 <div className="w-full h-full bg-gradient-to-br from-brand-purple to-brand-blue flex items-center justify-center">
                   <span className="text-4xl">📊</span>
                 </div>
               </motion.div>
 
-              {/* Middle Layer */}
+              {/* Middle Layer - Floating Element */}
               <motion.div
                 animate={{ y: [5, -5, 5] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-4 -right-4 w-40 h-40 glass rounded-2xl overflow-hidden"
+                className="absolute -bottom-4 -right-4 w-40 h-40 glass rounded-2xl overflow-hidden z-10"
               >
                 <div className="w-full h-full bg-gradient-to-br from-brand-orange to-brand-purple flex items-center justify-center">
                   <span className="text-4xl">🚀</span>
                 </div>
               </motion.div>
 
-              {/* Main Card */}
-              <div className="relative glass-strong rounded-3xl p-8 ml-8 mt-8">
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-brand-indigo to-brand-purple flex items-center justify-center">
-                  <div className="text-center text-primary-foreground p-8">
-                    <div className="text-6xl mb-4">💡</div>
-                    <h3 className="text-2xl font-bold mb-2">10+ Years</h3>
-                    <p className="text-sm opacity-80">Digital Excellence</p>
+              {/* Main Image Card */}
+              <div className="relative glass-strong rounded-3xl p-4 ml-8 mt-8 overflow-hidden">
+                <img 
+                  src={aboutImage} 
+                  alt="R Cube Infinity team collaboration with holographic data screens" 
+                  className="w-full h-auto rounded-2xl object-cover aspect-square"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-4 rounded-2xl bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
+                
+                {/* Stats Overlay */}
+                <div className="absolute bottom-8 left-8 right-8">
+                  <div className="glass rounded-xl px-4 py-3">
+                    <h3 className="text-2xl font-bold text-foreground">10+ Years</h3>
+                    <p className="text-sm text-muted-foreground">Digital Excellence</p>
                   </div>
                 </div>
               </div>
@@ -67,7 +76,7 @@ const AboutSection = () => {
               <motion.div
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1/2 -right-8 glass rounded-xl px-4 py-2"
+                className="absolute top-1/2 -right-8 glass rounded-xl px-4 py-2 z-20"
               >
                 <span className="text-sm font-semibold text-brand-orange">★ Top Rated</span>
               </motion.div>

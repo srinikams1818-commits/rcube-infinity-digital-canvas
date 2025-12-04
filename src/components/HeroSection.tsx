@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/hero-image.png";
 
 const HeroSection = () => {
   return (
@@ -8,8 +9,18 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero"
     >
+      {/* Hero Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroImage} 
+          alt="Digital marketing abstract waves" 
+          className="w-full h-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+      </div>
+      
       {/* Gradient Mesh Background */}
-      <div className="absolute inset-0 bg-gradient-mesh opacity-60" />
+      <div className="absolute inset-0 bg-gradient-mesh opacity-40" />
       
       {/* Animated Gradient Orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-purple/30 rounded-full blur-3xl animate-blob" />
@@ -18,7 +29,7 @@ const HeroSection = () => {
       
       {/* Grid Pattern Overlay */}
       <div 
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-10"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--border)) 1px, transparent 1px),
                            linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px)`,
