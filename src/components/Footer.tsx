@@ -7,6 +7,7 @@ import {
   Youtube,
   ArrowUpRight
 } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const footerLinks = {
   services: [
@@ -15,6 +16,7 @@ const footerLinks = {
     { name: "Google & Meta Ads", href: "#services" },
     { name: "Web Development", href: "#services" },
     { name: "Creative Branding", href: "#services" },
+    { name: "Video Editing", href: "#services" },
   ],
   company: [
     { name: "About Us", href: "#about" },
@@ -55,15 +57,11 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <a href="#home" className="flex items-center gap-3 mb-6 group">
-              <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-brand-purple to-brand-blue p-0.5">
-                <div className="w-full h-full rounded-xl bg-background flex items-center justify-center">
-                  <span className="text-xl font-bold text-gradient">R³</span>
-                </div>
-              </div>
-              <div>
-                <span className="text-lg font-bold text-foreground">R Cube Infinity</span>
-                <span className="block text-xs text-muted-foreground">Digital Solutions</span>
-              </div>
+              <img 
+                src={logo} 
+                alt="R Cube Infinity Solutions" 
+                className="h-14 w-auto object-contain"
+              />
             </a>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Top digital marketing agency in Tamil Nadu, helping businesses grow with 

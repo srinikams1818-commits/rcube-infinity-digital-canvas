@@ -8,7 +8,7 @@ const testimonials = [
     id: 1,
     name: "Rajesh Kumar",
     role: "CEO, TechCorp Chennai",
-    image: "👨‍💼",
+    initials: "RK",
     rating: 5,
     text: "R Cube Infinity transformed our digital presence completely. Our organic traffic increased by 300% within 6 months. Their SEO expertise is unmatched in Tamil Nadu.",
     location: "Chennai",
@@ -17,7 +17,7 @@ const testimonials = [
     id: 2,
     name: "Priya Sharma",
     role: "Founder, StyleHub",
-    image: "👩‍💼",
+    initials: "PS",
     rating: 5,
     text: "The social media strategy they developed for our fashion brand was brilliant. We saw a 4x increase in engagement and our sales doubled in just 3 months.",
     location: "Coimbatore",
@@ -26,7 +26,7 @@ const testimonials = [
     id: 3,
     name: "Arun Venkatesh",
     role: "Director, AutoParts Plus",
-    image: "👨‍🔧",
+    initials: "AV",
     rating: 5,
     text: "Their Google Ads management is exceptional. We're getting quality leads at 50% lower cost compared to our previous agency. Highly recommended!",
     location: "Madurai",
@@ -35,7 +35,7 @@ const testimonials = [
     id: 4,
     name: "Lakshmi Narayanan",
     role: "Owner, Heritage Hotels",
-    image: "👩‍💼",
+    initials: "LN",
     rating: 5,
     text: "The website they designed for our hotel chain is stunning. Bookings have increased by 200% since launch. True professionals!",
     location: "Trichy",
@@ -139,8 +139,10 @@ const TestimonialsSection = () => {
 
                   {/* Author Info */}
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-purple to-brand-blue flex items-center justify-center text-3xl">
-                      {testimonials[currentIndex].image}
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-purple to-brand-blue flex items-center justify-center">
+                      <span className="text-xl font-bold text-primary-foreground">
+                        {testimonials[currentIndex].initials}
+                      </span>
                     </div>
                     <div>
                       <h4 className="text-lg font-bold text-foreground">
