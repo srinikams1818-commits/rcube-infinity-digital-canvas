@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
+import logo from "@/assets/logo.png";
 
 const FloatingLogoSection = () => {
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-96 h-96 bg-brand-purple/20 rounded-full blur-3xl" />
+        <div className="w-96 h-96 bg-brand-purple/10 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -19,7 +20,7 @@ const FloatingLogoSection = () => {
             className="relative mb-10"
           >
             {/* Outer Glow Ring */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-brand-purple via-brand-blue to-brand-orange opacity-30 blur-2xl animate-pulse-slow" />
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-brand-purple via-brand-blue to-brand-orange opacity-20 blur-2xl animate-pulse-slow" />
             
             {/* Glass Container */}
             <motion.div
@@ -28,29 +29,19 @@ const FloatingLogoSection = () => {
               className="relative"
             >
               {/* Neon Border */}
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-brand-purple via-brand-blue to-brand-orange opacity-70 blur-sm" />
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-brand-purple via-brand-blue to-brand-orange opacity-40 blur-sm" />
               
               {/* Main Card */}
-              <div className="relative glass-strong rounded-3xl p-12 w-64 h-64 flex items-center justify-center">
+              <div className="relative glass-strong rounded-3xl p-8 w-72 h-72 flex items-center justify-center">
                 {/* Inner Glow */}
-                <div className="absolute inset-4 rounded-2xl bg-gradient-to-br from-brand-purple/20 to-brand-blue/20" />
+                <div className="absolute inset-4 rounded-2xl bg-gradient-to-br from-brand-purple/10 to-brand-blue/10" />
                 
                 {/* Logo */}
-                <div className="relative z-10 text-center">
-                  <motion.div
-                    animate={{ rotateY: [0, 360] }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="text-6xl font-bold text-gradient mb-2"
-                  >
-                    R³
-                  </motion.div>
-                  <div className="text-sm font-semibold text-foreground">
-                    INFINITY
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-1">
-                    Digital Solutions
-                  </div>
-                </div>
+                <img 
+                  src={logo} 
+                  alt="R Cube Infinity Solutions" 
+                  className="relative z-10 w-48 h-auto object-contain"
+                />
               </div>
             </motion.div>
           </motion.div>
@@ -68,6 +59,16 @@ const FloatingLogoSection = () => {
             {" "}Meets{" "}
             <span className="text-gradient-secondary">Digital Excellence</span>
           </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-4 text-muted-foreground text-center max-w-2xl"
+          >
+            We don't just deliver services—we build partnerships that empower your brand to thrive in the digital age.
+          </motion.p>
 
           {/* Decorative Line */}
           <motion.div

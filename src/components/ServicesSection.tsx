@@ -6,42 +6,63 @@ import serviceAds from "@/assets/service-ads.png";
 import serviceWeb from "@/assets/service-web.png";
 import serviceBranding from "@/assets/service-branding.png";
 import serviceEmail from "@/assets/service-email.png";
+import serviceVideo from "@/assets/service-video.png";
+import servicePhoto from "@/assets/service-photo.png";
+import serviceGraphic from "@/assets/service-graphic.png";
 
 const services = [
   {
     image: serviceSeo,
     title: "SEO & Local SEO",
-    description: "Dominate search results in Tamil Nadu with our data-driven SEO strategies that drive organic traffic and leads.",
+    description: "Dominate search rankings with data-driven strategies that attract high-intent customers and establish your authority online.",
     gradient: "from-brand-purple to-brand-blue",
   },
   {
     image: serviceSocial,
     title: "Social Media Marketing",
-    description: "Build a powerful social presence that engages your audience and converts followers into customers.",
+    description: "Build meaningful connections with your audience through compelling content that sparks engagement and drives loyalty.",
     gradient: "from-brand-orange to-brand-purple",
   },
   {
     image: serviceAds,
     title: "Google & Meta Ads",
-    description: "Maximize ROI with precision-targeted advertising campaigns that reach your ideal customers.",
+    description: "Maximize every rupee with precision-targeted campaigns that reach the right people at the right moment.",
     gradient: "from-brand-blue to-brand-purple",
   },
   {
     image: serviceWeb,
     title: "Web Design & Development",
-    description: "Create stunning, high-performance websites that captivate visitors and drive conversions.",
+    description: "Create stunning, lightning-fast websites that captivate visitors and convert them into loyal customers.",
     gradient: "from-brand-purple to-brand-orange",
   },
   {
     image: serviceBranding,
     title: "Creative Branding",
-    description: "Develop a distinctive brand identity that sets you apart and resonates with your target audience.",
+    description: "Develop a distinctive brand identity that tells your unique story and resonates deeply with your audience.",
     gradient: "from-brand-orange to-brand-blue",
   },
   {
     image: serviceEmail,
     title: "Email & Automation",
-    description: "Nurture leads and boost retention with intelligent email marketing and automation workflows.",
+    description: "Nurture leads and boost retention with intelligent workflows that deliver the right message at the perfect time.",
+    gradient: "from-brand-blue to-brand-orange",
+  },
+  {
+    image: serviceVideo,
+    title: "Video Editing",
+    description: "Transform raw footage into cinematic masterpieces that captivate audiences and amplify your brand story.",
+    gradient: "from-brand-purple to-brand-blue",
+  },
+  {
+    image: servicePhoto,
+    title: "Photo Editing",
+    description: "Elevate your visuals with professional retouching and color grading that makes every image unforgettable.",
+    gradient: "from-brand-orange to-brand-purple",
+  },
+  {
+    image: serviceGraphic,
+    title: "Graphic Design",
+    description: "Create eye-catching designs that communicate your message clearly and leave a lasting visual impression.",
     gradient: "from-brand-blue to-brand-orange",
   },
 ];
@@ -50,7 +71,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="py-24 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
+      <div className="absolute inset-0 bg-gradient-mesh opacity-50" />
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -73,8 +94,8 @@ const ServicesSection = () => {
           </h2>
           
           <p className="text-lg text-muted-foreground">
-            From strategy to execution, we offer end-to-end digital marketing services 
-            tailored to grow your business in Tamil Nadu and beyond.
+            From strategy to execution, we offer end-to-end digital services 
+            tailored to help your business stand out and achieve measurable growth.
           </p>
         </motion.div>
 
@@ -91,7 +112,7 @@ const ServicesSection = () => {
               className="group relative"
             >
               {/* Glow Effect */}
-              <div className={`absolute -inset-0.5 bg-gradient-to-r ${service.gradient} rounded-2xl opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-500`} />
+              <div className={`absolute -inset-0.5 bg-gradient-to-r ${service.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500`} />
               
               {/* Card */}
               <div className="relative glass-strong rounded-2xl overflow-hidden h-full border border-border/50 group-hover:border-border transition-colors">
@@ -102,7 +123,7 @@ const ServicesSection = () => {
                     alt={service.title} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
                 </div>
 
                 {/* Content */}

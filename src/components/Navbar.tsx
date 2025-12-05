@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#portfolio" },
+  { name: "Combos", href: "#combos" },
   { name: "Testimonials", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
 ];
@@ -39,19 +40,11 @@ const Navbar = () => {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-brand-purple to-brand-blue p-0.5">
-              <div className="w-full h-full rounded-xl bg-background flex items-center justify-center">
-                <span className="text-xl font-bold text-gradient">R³</span>
-              </div>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-lg font-bold text-foreground group-hover:text-gradient transition-all">
-                R Cube Infinity
-              </span>
-              <span className="block text-xs text-muted-foreground">
-                Digital Solutions
-              </span>
-            </div>
+            <img 
+              src={logo} 
+              alt="R Cube Infinity Solutions" 
+              className="h-12 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Navigation */}

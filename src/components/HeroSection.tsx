@@ -14,25 +14,25 @@ const HeroSection = () => {
         <img 
           src={heroImage} 
           alt="Digital marketing abstract waves" 
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
       </div>
       
       {/* Gradient Mesh Background */}
-      <div className="absolute inset-0 bg-gradient-mesh opacity-40" />
+      <div className="absolute inset-0 bg-gradient-mesh" />
       
-      {/* Animated Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-purple/30 rounded-full blur-3xl animate-blob" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-blue/20 rounded-full blur-3xl animate-blob animation-delay-400" />
-      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-brand-orange/20 rounded-full blur-3xl animate-blob animation-delay-800" />
+      {/* Animated Gradient Orbs - Lighter for light mode */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-purple/10 rounded-full blur-3xl animate-blob" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-blue/10 rounded-full blur-3xl animate-blob animation-delay-400" />
+      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-brand-orange/10 rounded-full blur-3xl animate-blob animation-delay-800" />
       
       {/* Grid Pattern Overlay */}
       <div 
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage: `linear-gradient(hsl(var(--border)) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
+                           linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
         }}
       />
@@ -48,7 +48,7 @@ const HeroSection = () => {
           >
             <Sparkles className="w-4 h-4 text-brand-orange" />
             <span className="text-sm font-medium text-muted-foreground">
-              #1 Digital Marketing Agency in Tamil Nadu
+              Your Growth Partner in Digital Excellence
             </span>
           </motion.div>
 
@@ -59,11 +59,11 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
           >
-            <span className="text-foreground">Top </span>
-            <span className="text-gradient">Digital Marketing</span>
+            <span className="text-foreground">Transform Your </span>
+            <span className="text-gradient">Vision</span>
             <br />
-            <span className="text-foreground">Agency in </span>
-            <span className="text-gradient-secondary">Tamil Nadu</span>
+            <span className="text-foreground">Into </span>
+            <span className="text-gradient-secondary">Digital Reality</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -73,8 +73,8 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed"
           >
-            We build powerful digital ecosystems with SEO, branding, performance marketing, 
-            and next-gen web experiences that drive real business growth.
+            We craft powerful digital experiences that captivate audiences, amplify your brand, 
+            and drive measurable results. Let's build something extraordinary together.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -85,12 +85,12 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Button variant="hero" size="xl" className="group">
-              Get Free Strategy Report
+              Start Your Journey
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="heroOutline" size="xl" className="group">
               <Play className="w-5 h-5" />
-              Explore Solutions
+              See Our Work
             </Button>
           </motion.div>
 
@@ -102,18 +102,19 @@ const HeroSection = () => {
             className="mt-16 pt-10 border-t border-border/50"
           >
             <p className="text-sm text-muted-foreground mb-6">
-              Trusted by 150+ businesses across Tamil Nadu
+              Trusted by 150+ businesses to elevate their digital presence
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
-              {["Chennai", "Coimbatore", "Madurai", "Trichy", "Salem"].map((city, index) => (
+            <div className="flex flex-wrap items-center justify-center gap-8">
+              {["SEO Excellence", "Brand Strategy", "Creative Design", "Performance Marketing", "Web Solutions"].map((item, index) => (
                 <motion.div
-                  key={city}
+                  key={item}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 + index * 0.1 }}
-                  className="text-sm font-medium text-muted-foreground"
+                  className="text-sm font-medium text-muted-foreground flex items-center gap-2"
                 >
-                  📍 {city}
+                  <span className="w-2 h-2 rounded-full bg-gradient-to-r from-brand-purple to-brand-blue" />
+                  {item}
                 </motion.div>
               ))}
             </div>
