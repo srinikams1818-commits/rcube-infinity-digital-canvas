@@ -1,52 +1,48 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const services = [
-  { name: "SEO & Local SEO", href: "#services" },
-  { name: "Social Media Marketing", href: "#services" },
-  { name: "Google & Meta Ads", href: "#services" },
-  { name: "Web Development", href: "#services" },
-  { name: "Creative Branding", href: "#services" },
-  { name: "Video Editing", href: "#services" },
-  { name: "Photo Editing", href: "#services" },
-  { name: "Graphic Design", href: "#services" },
+  { name: "SEO & Local SEO", href: "/services" },
+  { name: "Social Media Marketing", href: "/services" },
+  { name: "Google & Meta Ads", href: "/services" },
+  { name: "Web Development", href: "/services" },
+  { name: "Creative Branding", href: "/services" },
+  { name: "Video Editing", href: "/services" },
+  { name: "Photo Editing", href: "/services" },
+  { name: "Graphic Design", href: "/services" },
 ];
 
 const sectors = [
-  { name: "Healthcare", href: "#services" },
-  { name: "Food & Restaurant", href: "#services" },
-  { name: "Education", href: "#services" },
-  { name: "Real Estate", href: "#services" },
-  { name: "E-commerce", href: "#services" },
-  { name: "Hospitality", href: "#services" },
-  { name: "Automotive", href: "#services" },
-  { name: "Fashion & Lifestyle", href: "#services" },
+  { name: "Healthcare", href: "/sectors" },
+  { name: "Food & Restaurant", href: "/sectors" },
+  { name: "Education", href: "/sectors" },
+  { name: "Real Estate", href: "/sectors" },
+  { name: "E-commerce", href: "/sectors" },
+  { name: "Hospitality", href: "/sectors" },
+  { name: "Automotive", href: "/sectors" },
+  { name: "Fashion & Lifestyle", href: "/sectors" },
 ];
 
 const areas = [
-  { name: "Chennai", href: "#locations" },
-  { name: "Coimbatore", href: "#locations" },
-  { name: "Madurai", href: "#locations" },
-  { name: "Trichy", href: "#locations" },
-  { name: "Salem", href: "#locations" },
-  { name: "Tiruppur", href: "#locations" },
-  { name: "Erode", href: "#locations" },
-  { name: "Vellore", href: "#locations" },
-];
-
-const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Chennai", href: "/#locations" },
+  { name: "Coimbatore", href: "/#locations" },
+  { name: "Madurai", href: "/#locations" },
+  { name: "Trichy", href: "/#locations" },
+  { name: "Salem", href: "/#locations" },
+  { name: "Tiruppur", href: "/#locations" },
+  { name: "Erode", href: "/#locations" },
+  { name: "Vellore", href: "/#locations" },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,52 +54,76 @@ const Navbar = () => {
 
   const DropdownMenu = ({ 
     label, 
-    items, 
-    isOpen, 
-    onToggle 
+    items,
+    viewAllLink,
   }: { 
     label: string; 
     items: { name: string; href: string }[]; 
-    isOpen: boolean;
-    onToggle: () => void;
-  }) => (
-    <div className="relative">
-      <button
-        onClick={onToggle}
+    viewAllLink: string;
+  }) => {
+    const isOpen = activeDropdown === label;
+    
+    return (
+      <div 
+        className="relative"
         onMouseEnter={() => setActiveDropdown(label)}
-        className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        onMouseLeave={() => setActiveDropdown(null)}
       >
-        {label}
-        <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-      </button>
-      
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.2 }}
-            onMouseLeave={() => setActiveDropdown(null)}
-            className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-xl shadow-xl z-50 overflow-hidden"
-          >
-            <div className="py-2 max-h-80 overflow-y-auto">
-              {items.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
+        <button
+          className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+        >
+          {label}
+          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        </button>
+        
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 8, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 8, scale: 0.96 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+              className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 z-50"
+            >
+              {/* Arrow */}
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-card border-l border-t border-border" />
+              
+              <div className="relative bg-card border border-border rounded-2xl shadow-elevated overflow-hidden">
+                {/* Gradient header */}
+                <div className="px-4 py-3 bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border-b border-border">
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">{label}</span>
+                </div>
+                
+                <div className="py-2 max-h-72 overflow-y-auto">
+                  {items.map((item, index) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      onClick={() => setActiveDropdown(null)}
+                      className="group flex items-center gap-3 px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-purple/50 group-hover:bg-brand-purple group-hover:scale-125 transition-all" />
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+                
+                {/* View All Link */}
+                <Link
+                  to={viewAllLink}
                   onClick={() => setActiveDropdown(null)}
-                  className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                  className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-brand-purple hover:text-brand-purple/80 bg-muted/30 border-t border-border transition-colors"
                 >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
+                  View All {label}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  };
 
   return (
     <motion.header
@@ -112,66 +132,62 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "glass-strong py-3"
+          ? "bg-background/95 backdrop-blur-xl border-b border-border shadow-sm py-3"
           : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <img 
               src={logo} 
               alt="R Cube Infinity Solutions" 
               className="h-12 w-auto object-contain"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.slice(0, 2).map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground animated-underline transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
+            <Link
+              to="/"
+              className={`text-sm font-medium transition-colors ${location.pathname === '/' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className={`text-sm font-medium transition-colors ${location.pathname === '/about' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+            >
+              About
+            </Link>
             
             {/* Dropdowns */}
-            <DropdownMenu
-              label="Services"
-              items={services}
-              isOpen={activeDropdown === "Services"}
-              onToggle={() => setActiveDropdown(activeDropdown === "Services" ? null : "Services")}
-            />
-            <DropdownMenu
-              label="Sectors"
-              items={sectors}
-              isOpen={activeDropdown === "Sectors"}
-              onToggle={() => setActiveDropdown(activeDropdown === "Sectors" ? null : "Sectors")}
-            />
-            <DropdownMenu
-              label="Areas"
-              items={areas}
-              isOpen={activeDropdown === "Areas"}
-              onToggle={() => setActiveDropdown(activeDropdown === "Areas" ? null : "Areas")}
-            />
+            <DropdownMenu label="Services" items={services} viewAllLink="/services" />
+            <DropdownMenu label="Sectors" items={sectors} viewAllLink="/sectors" />
+            <DropdownMenu label="Areas" items={areas} viewAllLink="/#locations" />
             
-            <a
-              href="#contact"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground animated-underline transition-colors"
+            <Link
+              to="/blog"
+              className={`text-sm font-medium transition-colors ${location.pathname === '/blog' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+            >
+              Blog
+            </Link>
+            <Link
+              to="/contact"
+              className={`text-sm font-medium transition-colors ${location.pathname === '/contact' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
             >
               Contact
-            </a>
+            </Link>
           </div>
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="hero" size="default">
-              Get Free Consultation
-            </Button>
+            <Link to="/contact">
+              <Button variant="hero" size="default">
+                Get Free Consultation
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -195,61 +211,16 @@ const Navbar = () => {
               className="lg:hidden mt-4 glass rounded-2xl p-6"
             >
               <div className="flex flex-col gap-4">
-                <a
-                  href="#home"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-base font-medium text-muted-foreground hover:text-foreground py-2 transition-colors"
-                >
-                  Home
-                </a>
-                <a
-                  href="#about"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-base font-medium text-muted-foreground hover:text-foreground py-2 transition-colors"
-                >
-                  About
-                </a>
+                <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-muted-foreground hover:text-foreground py-2">Home</Link>
+                <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-muted-foreground hover:text-foreground py-2">About</Link>
+                <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-muted-foreground hover:text-foreground py-2">Services</Link>
+                <Link to="/sectors" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-muted-foreground hover:text-foreground py-2">Sectors</Link>
+                <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-muted-foreground hover:text-foreground py-2">Blog</Link>
+                <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-muted-foreground hover:text-foreground py-2">Contact</Link>
                 
-                {/* Mobile Dropdowns */}
-                <div className="border-t border-border pt-4">
-                  <p className="text-xs uppercase text-muted-foreground mb-2">Services</p>
-                  {services.slice(0, 4).map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-sm text-muted-foreground hover:text-foreground py-1.5"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-                
-                <div className="border-t border-border pt-4">
-                  <p className="text-xs uppercase text-muted-foreground mb-2">Sectors</p>
-                  {sectors.slice(0, 4).map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-sm text-muted-foreground hover:text-foreground py-1.5"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-                
-                <a
-                  href="#contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-base font-medium text-muted-foreground hover:text-foreground py-2 transition-colors border-t border-border pt-4"
-                >
-                  Contact
-                </a>
-                
-                <Button variant="hero" className="mt-4 w-full">
-                  Get Free Consultation
-                </Button>
+                <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button variant="hero" className="mt-4 w-full">Get Free Consultation</Button>
+                </Link>
               </div>
             </motion.div>
           )}
