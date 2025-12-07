@@ -1,41 +1,28 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-image.png";
+import { Link } from "react-router-dom";
+import heroFestive from "@/assets/hero-festive.png";
 
 const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Hero Background Image */}
+      {/* Festive Hero Background Image */}
       <div className="absolute inset-0">
         <img 
-          src={heroImage} 
-          alt="Digital marketing abstract waves" 
-          className="w-full h-full object-cover opacity-20"
+          src={heroFestive} 
+          alt="Festive digital marketing background" 
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
       </div>
       
-      {/* Gradient Mesh Background */}
-      <div className="absolute inset-0 bg-gradient-mesh" />
-      
-      {/* Animated Gradient Orbs - Lighter for light mode */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-purple/10 rounded-full blur-3xl animate-blob" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-blue/10 rounded-full blur-3xl animate-blob animation-delay-400" />
-      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-brand-orange/10 rounded-full blur-3xl animate-blob animation-delay-800" />
-      
-      {/* Grid Pattern Overlay */}
-      <div 
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }}
-      />
+      {/* Animated Gradient Orbs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-purple/15 rounded-full blur-3xl animate-blob" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl animate-blob animation-delay-400" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
@@ -48,7 +35,7 @@ const HeroSection = () => {
           >
             <Sparkles className="w-4 h-4 text-brand-orange" />
             <span className="text-sm font-medium text-muted-foreground">
-              Your Growth Partner in Digital Excellence
+              Your Partner in Digital Excellence
             </span>
           </motion.div>
 
@@ -59,11 +46,11 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
           >
-            <span className="text-foreground">Transform Your </span>
-            <span className="text-gradient">Vision</span>
+            <span className="text-foreground">Ignite Your </span>
+            <span className="text-gradient">Brand's</span>
             <br />
-            <span className="text-foreground">Into </span>
-            <span className="text-gradient-secondary">Digital Reality</span>
+            <span className="text-gradient-secondary">Digital</span>
+            <span className="text-foreground"> Success Story</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -84,14 +71,18 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button variant="hero" size="xl" className="group">
-              Start Your Journey
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="heroOutline" size="xl" className="group">
-              <Play className="w-5 h-5" />
-              See Our Work
-            </Button>
+            <Link to="/contact">
+              <Button variant="hero" size="xl" className="group">
+                Start Your Journey
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link to="/services">
+              <Button variant="heroOutline" size="xl" className="group">
+                <Play className="w-5 h-5" />
+                Explore Services
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Trust Indicators */}
