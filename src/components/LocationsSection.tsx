@@ -1,54 +1,63 @@
 import { motion } from "framer-motion";
-import { MapPin, Building2, Users, TrendingUp } from "lucide-react";
+import { MapPin } from "lucide-react";
+
+import locationChennai from "@/assets/location-chennai.png";
+import locationCoimbatore from "@/assets/location-coimbatore.png";
+import locationMadurai from "@/assets/location-madurai.png";
+import locationTrichy from "@/assets/location-trichy.png";
+import locationSalem from "@/assets/location-salem.png";
+import locationTiruppur from "@/assets/location-tiruppur.png";
+import locationErode from "@/assets/location-erode.png";
+import locationVellore from "@/assets/location-vellore.png";
 
 const locations = [
   { 
     city: "Chennai", 
     tagline: "Capital of Innovation",
     stats: "50+ Clients",
-    icon: Building2,
+    image: locationChennai,
   },
   { 
     city: "Coimbatore", 
     tagline: "Manchester of South",
     stats: "30+ Clients",
-    icon: TrendingUp,
+    image: locationCoimbatore,
   },
   { 
     city: "Madurai", 
     tagline: "Temple City",
     stats: "25+ Clients",
-    icon: Users,
+    image: locationMadurai,
   },
   { 
     city: "Trichy", 
     tagline: "Rock Fort City",
     stats: "20+ Clients",
-    icon: Building2,
+    image: locationTrichy,
   },
   { 
     city: "Salem", 
     tagline: "Steel City",
     stats: "15+ Clients",
-    icon: TrendingUp,
+    image: locationSalem,
   },
   { 
     city: "Tiruppur", 
     tagline: "Knit Wear Hub",
     stats: "18+ Clients",
-    icon: Users,
+    image: locationTiruppur,
   },
   { 
     city: "Erode", 
     tagline: "Turmeric City",
     stats: "12+ Clients",
-    icon: Building2,
+    image: locationErode,
   },
   { 
     city: "Vellore", 
     tagline: "Fort City",
     stats: "10+ Clients",
-    icon: TrendingUp,
+    image: locationVellore,
   },
 ];
 
@@ -100,26 +109,31 @@ const LocationsSection = () => {
                 {/* Glow Effect */}
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-purple to-brand-blue rounded-2xl opacity-0 group-hover:opacity-40 blur-sm transition-all duration-300" />
                 
-                <div className="relative glass-strong rounded-2xl p-6 h-full hover:bg-card/90 transition-all">
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-purple/20 to-brand-blue/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <location.icon className="w-6 h-6 text-brand-purple" />
+                <div className="relative glass-strong rounded-2xl overflow-hidden h-full hover:bg-card/90 transition-all">
+                  {/* Image */}
+                  <div className="relative h-36 overflow-hidden">
+                    <img 
+                      src={location.image} 
+                      alt={location.city}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
+                    
+                    {/* Location Pin Badge */}
+                    <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-full bg-background/80 backdrop-blur-sm">
+                      <div className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+                      <span className="text-xs font-medium text-foreground">{location.stats}</span>
+                    </div>
                   </div>
                   
-                  {/* Location Pin */}
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-3 h-3 rounded-full bg-brand-orange animate-pulse" />
-                    <h3 className="text-lg font-bold text-foreground group-hover:text-gradient transition-all">
+                  {/* Content */}
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-foreground group-hover:text-gradient transition-all mb-1">
                       {location.city}
                     </h3>
-                  </div>
-                  
-                  <p className="text-sm text-muted-foreground mb-3">
-                    {location.tagline}
-                  </p>
-                  
-                  <div className="text-xs font-semibold text-brand-purple">
-                    {location.stats}
+                    <p className="text-sm text-muted-foreground">
+                      {location.tagline}
+                    </p>
                   </div>
                 </div>
               </div>
