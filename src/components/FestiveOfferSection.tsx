@@ -1,8 +1,49 @@
 import { motion } from "framer-motion";
 import { Sparkles, Gift, Star, Snowflake, PartyPopper } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 
 const FestiveOfferSection = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    // Set target date to January 1st, 2025
+    const targetDate = new Date("2025-01-01T00:00:00").getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000),
+        });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const countdownItems = [
+    { value: String(timeLeft.days).padStart(2, "0"), label: "Days" },
+    { value: String(timeLeft.hours).padStart(2, "0"), label: "Hours" },
+    { value: String(timeLeft.minutes).padStart(2, "0"), label: "Mins" },
+    { value: String(timeLeft.seconds).padStart(2, "0"), label: "Secs" },
+  ];
+
   return (
     <section className="py-16 relative overflow-hidden">
       {/* Festive Background */}
@@ -113,14 +154,16 @@ const FestiveOfferSection = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.6 }}
                 >
-                  <Button variant="hero" size="xl" className="group">
-                    <Gift className="w-5 h-5 mr-2" />
-                    Claim Your Offer
-                  </Button>
+                  <a href="https://wa.me/919840562374?text=Hi! I'm interested in the FESTIVE30 offer">
+                    <Button variant="hero" size="xl" className="group">
+                      <Gift className="w-5 h-5 mr-2" />
+                      Claim Your Offer
+                    </Button>
+                  </a>
                 </motion.div>
               </div>
 
-              {/* Countdown / Visual */}
+              {/* Countdown */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -131,12 +174,7 @@ const FestiveOfferSection = () => {
                 <div className="inline-block">
                   <div className="text-sm text-muted-foreground mb-4">Offer Ends In</div>
                   <div className="grid grid-cols-4 gap-3">
-                    {[
-                      { value: "25", label: "Days" },
-                      { value: "12", label: "Hours" },
-                      { value: "45", label: "Mins" },
-                      { value: "30", label: "Secs" },
-                    ].map((item) => (
+                    {countdownItems.map((item) => (
                       <div key={item.label} className="glass rounded-xl p-4">
                         <div className="text-2xl sm:text-3xl font-bold text-gradient">{item.value}</div>
                         <div className="text-xs text-muted-foreground">{item.label}</div>

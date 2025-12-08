@@ -1,22 +1,64 @@
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { MapPin, Building2, Users, TrendingUp } from "lucide-react";
 
 const locations = [
-  { city: "Chennai", tagline: "Capital of Innovation" },
-  { city: "Coimbatore", tagline: "Manchester of South" },
-  { city: "Madurai", tagline: "Temple City" },
-  { city: "Trichy", tagline: "Rock Fort City" },
-  { city: "Salem", tagline: "Steel City" },
-  { city: "Tiruppur", tagline: "Knit Wear Hub" },
-  { city: "Erode", tagline: "Turmeric City" },
-  { city: "Vellore", tagline: "Fort City" },
+  { 
+    city: "Chennai", 
+    tagline: "Capital of Innovation",
+    stats: "50+ Clients",
+    icon: Building2,
+  },
+  { 
+    city: "Coimbatore", 
+    tagline: "Manchester of South",
+    stats: "30+ Clients",
+    icon: TrendingUp,
+  },
+  { 
+    city: "Madurai", 
+    tagline: "Temple City",
+    stats: "25+ Clients",
+    icon: Users,
+  },
+  { 
+    city: "Trichy", 
+    tagline: "Rock Fort City",
+    stats: "20+ Clients",
+    icon: Building2,
+  },
+  { 
+    city: "Salem", 
+    tagline: "Steel City",
+    stats: "15+ Clients",
+    icon: TrendingUp,
+  },
+  { 
+    city: "Tiruppur", 
+    tagline: "Knit Wear Hub",
+    stats: "18+ Clients",
+    icon: Users,
+  },
+  { 
+    city: "Erode", 
+    tagline: "Turmeric City",
+    stats: "12+ Clients",
+    icon: Building2,
+  },
+  { 
+    city: "Vellore", 
+    tagline: "Fort City",
+    stats: "10+ Clients",
+    icon: TrendingUp,
+  },
 ];
 
 const LocationsSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section id="locations" className="py-24 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-brand-indigo/20 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-brand-indigo/10 to-background" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-purple/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-blue/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -43,84 +85,60 @@ const LocationsSection = () => {
           </p>
         </motion.div>
 
-        {/* Map Section */}
-        <div className="relative max-w-5xl mx-auto">
-          {/* Tamil Nadu Map Silhouette (Stylized) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative aspect-[4/3] glass-strong rounded-3xl p-8 overflow-hidden"
-          >
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/10 via-transparent to-brand-blue/10" />
-            
-            {/* Grid Pattern */}
-            <div 
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--brand-purple)) 1px, transparent 0)`,
-                backgroundSize: '40px 40px'
-              }}
-            />
-
-            {/* Locations Grid */}
-            <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-4 h-full content-center">
-              {locations.map((location, index) => (
-                <motion.div
-                  key={location.city}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="group"
-                >
-                  <div className="glass rounded-xl p-4 text-center hover:bg-brand-purple/20 transition-colors cursor-pointer">
-                    {/* Glow Dot */}
-                    <div className="w-4 h-4 mx-auto mb-3 rounded-full bg-brand-orange animate-pulse-glow" />
-                    
+        {/* Locations Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          {locations.map((location, index) => (
+            <motion.div
+              key={location.city}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className="group"
+            >
+              <div className="relative h-full">
+                {/* Glow Effect */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-purple to-brand-blue rounded-2xl opacity-0 group-hover:opacity-40 blur-sm transition-all duration-300" />
+                
+                <div className="relative glass-strong rounded-2xl p-6 h-full hover:bg-card/90 transition-all">
+                  {/* Icon */}
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-purple/20 to-brand-blue/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <location.icon className="w-6 h-6 text-brand-purple" />
+                  </div>
+                  
+                  {/* Location Pin */}
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-3 h-3 rounded-full bg-brand-orange animate-pulse" />
                     <h3 className="text-lg font-bold text-foreground group-hover:text-gradient transition-all">
                       {location.city}
                     </h3>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {location.tagline}
-                    </p>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Connection Lines (Decorative) */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="hsl(var(--brand-purple))" />
-                  <stop offset="100%" stopColor="hsl(var(--brand-blue))" />
-                </linearGradient>
-              </defs>
-              <line x1="25%" y1="25%" x2="75%" y2="25%" stroke="url(#line-gradient)" strokeWidth="1" />
-              <line x1="25%" y1="75%" x2="75%" y2="75%" stroke="url(#line-gradient)" strokeWidth="1" />
-              <line x1="25%" y1="25%" x2="25%" y2="75%" stroke="url(#line-gradient)" strokeWidth="1" />
-              <line x1="75%" y1="25%" x2="75%" y2="75%" stroke="url(#line-gradient)" strokeWidth="1" />
-              <line x1="50%" y1="25%" x2="50%" y2="75%" stroke="url(#line-gradient)" strokeWidth="1" />
-            </svg>
-          </motion.div>
-
-          {/* SEO Text */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center text-sm text-muted-foreground mt-8 max-w-2xl mx-auto"
-          >
-            R Cube Infinity provides digital marketing services including SEO, social media marketing, 
-            web development, and branding solutions to businesses in Chennai, Coimbatore, Madurai, 
-            Trichy, Salem, Tiruppur, Erode, Vellore, and all across Tamil Nadu.
-          </motion.p>
+                  
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {location.tagline}
+                  </p>
+                  
+                  <div className="text-xs font-semibold text-brand-purple">
+                    {location.stats}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
+        {/* SEO Text */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center text-sm text-muted-foreground mt-12 max-w-2xl mx-auto"
+        >
+          R Cube Infinity provides digital marketing services including SEO, social media marketing, 
+          web development, and branding solutions to businesses in Chennai, Coimbatore, Madurai, 
+          Trichy, Salem, Tiruppur, Erode, Vellore, and all across Tamil Nadu.
+        </motion.p>
       </div>
     </section>
   );

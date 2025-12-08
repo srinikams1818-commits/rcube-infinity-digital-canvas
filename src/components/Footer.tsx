@@ -1,45 +1,45 @@
 import { motion } from "framer-motion";
 import { 
   Facebook, 
-  Twitter, 
   Instagram, 
   Linkedin, 
   Youtube,
-  ArrowUpRight
+  Phone
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const footerLinks = {
   services: [
-    { name: "SEO & Local SEO", href: "#services" },
-    { name: "Social Media Marketing", href: "#services" },
-    { name: "Google & Meta Ads", href: "#services" },
-    { name: "Web Development", href: "#services" },
-    { name: "Creative Branding", href: "#services" },
-    { name: "Video Editing", href: "#services" },
+    { name: "SEO & Local SEO", href: "/services" },
+    { name: "Social Media Marketing", href: "/services" },
+    { name: "Google & Meta Ads", href: "/services" },
+    { name: "Web Development", href: "/services" },
+    { name: "Creative Branding", href: "/services" },
+    { name: "Video Editing", href: "/services" },
   ],
   company: [
-    { name: "About Us", href: "#about" },
-    { name: "Our Team", href: "#about" },
-    { name: "Careers", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Contact", href: "#contact" },
+    { name: "About Us", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Sectors", href: "/sectors" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ],
   locations: [
-    { name: "Chennai", href: "#" },
-    { name: "Coimbatore", href: "#" },
-    { name: "Madurai", href: "#" },
-    { name: "Trichy", href: "#" },
-    { name: "Salem", href: "#" },
+    { name: "Chennai", href: "/#locations" },
+    { name: "Coimbatore", href: "/#locations" },
+    { name: "Madurai", href: "/#locations" },
+    { name: "Trichy", href: "/#locations" },
+    { name: "Salem", href: "/#locations" },
   ],
 };
 
 const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Youtube, href: "#", label: "YouTube" },
+  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/rcubeinfinitysolutions", label: "Instagram" },
+  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+  { icon: Phone, href: "https://wa.me/919840562374", label: "WhatsApp" },
 ];
 
 const Footer = () => {
@@ -56,13 +56,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <a href="#home" className="flex items-center gap-3 mb-6 group">
+            <Link to="/" className="flex items-center gap-3 mb-6 group">
               <img 
                 src={logo} 
                 alt="R Cube Infinity Solutions" 
                 className="h-14 w-auto object-contain"
               />
-            </a>
+            </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Top digital marketing agency in Tamil Nadu, helping businesses grow with 
               data-driven SEO, social media, and web development solutions.
@@ -73,6 +73,8 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="w-10 h-10 rounded-lg glass flex items-center justify-center text-muted-foreground hover:text-brand-purple hover:bg-brand-purple/20 transition-colors"
                 >
@@ -90,12 +92,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground animated-underline transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -109,12 +111,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground animated-underline transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -128,12 +130,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.locations.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground animated-underline transition-colors inline-flex items-center gap-1"
                   >
                     📍 {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -147,12 +149,12 @@ const Footer = () => {
               © {new Date().getFullYear()} R Cube Infinity Digital Solutions. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              </Link>
+              <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>
