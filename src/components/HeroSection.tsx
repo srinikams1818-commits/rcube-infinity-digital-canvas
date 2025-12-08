@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import heroFestive from "@/assets/hero-festive.png";
+import heroBackground from "@/assets/hero-background.png";
 
 const HeroSection = () => {
   return (
@@ -10,14 +10,14 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Festive Hero Background Image */}
+      {/* Hero Background Image */}
       <div className="absolute inset-0">
         <img 
-          src={heroFestive} 
-          alt="Festive digital marketing background" 
+          src={heroBackground} 
+          alt="Digital marketing background" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
       
       {/* Animated Gradient Orbs */}

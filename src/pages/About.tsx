@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
+import TeamSection from "@/components/TeamSection";
+import AboutCTASection from "@/components/AboutCTASection";
 import { motion } from "framer-motion";
 import { CheckCircle, Zap, Target, TrendingUp, Users, Award, Globe, Heart } from "lucide-react";
 import aboutImage from "@/assets/about-image.png";
@@ -172,6 +174,12 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Team Section */}
+      <TeamSection />
+
+      {/* CTA Section */}
+      <AboutCTASection />
 
       <Footer />
       <WhatsAppButton />

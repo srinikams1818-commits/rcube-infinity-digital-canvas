@@ -14,14 +14,62 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const sectors = [
-  { icon: Stethoscope, title: "Healthcare", color: "brand-blue" },
-  { icon: UtensilsCrossed, title: "Food & Restaurant", color: "brand-orange" },
-  { icon: GraduationCap, title: "Education", color: "brand-purple" },
-  { icon: Building2, title: "Real Estate", color: "brand-blue" },
-  { icon: ShoppingCart, title: "E-commerce", color: "brand-orange" },
-  { icon: Hotel, title: "Hospitality", color: "brand-purple" },
-  { icon: Car, title: "Automotive", color: "brand-blue" },
-  { icon: Shirt, title: "Fashion", color: "brand-orange" },
+  { 
+    icon: Stethoscope, 
+    title: "Healthcare", 
+    description: "Digital solutions for clinics, hospitals & wellness brands",
+    color: "brand-blue",
+    gradient: "from-blue-500/20 to-cyan-500/20",
+  },
+  { 
+    icon: UtensilsCrossed, 
+    title: "Food & Restaurant", 
+    description: "Grow your restaurant with online ordering & delivery marketing",
+    color: "brand-orange",
+    gradient: "from-orange-500/20 to-red-500/20",
+  },
+  { 
+    icon: GraduationCap, 
+    title: "Education", 
+    description: "Attract more students with targeted education marketing",
+    color: "brand-purple",
+    gradient: "from-purple-500/20 to-pink-500/20",
+  },
+  { 
+    icon: Building2, 
+    title: "Real Estate", 
+    description: "Generate quality leads for properties & developments",
+    color: "brand-blue",
+    gradient: "from-blue-500/20 to-indigo-500/20",
+  },
+  { 
+    icon: ShoppingCart, 
+    title: "E-commerce", 
+    description: "Scale your online store with performance marketing",
+    color: "brand-orange",
+    gradient: "from-orange-500/20 to-yellow-500/20",
+  },
+  { 
+    icon: Hotel, 
+    title: "Hospitality", 
+    description: "Increase bookings for hotels, resorts & travel businesses",
+    color: "brand-purple",
+    gradient: "from-purple-500/20 to-violet-500/20",
+  },
+  { 
+    icon: Car, 
+    title: "Automotive", 
+    description: "Drive showroom visits & service bookings",
+    color: "brand-blue",
+    gradient: "from-blue-500/20 to-sky-500/20",
+  },
+  { 
+    icon: Shirt, 
+    title: "Fashion", 
+    description: "Build brand awareness for fashion & lifestyle brands",
+    color: "brand-orange",
+    gradient: "from-orange-500/20 to-pink-500/20",
+  },
 ];
 
 const ServiceSectorsSection = () => {
@@ -57,7 +105,7 @@ const ServiceSectorsSection = () => {
         </motion.div>
 
         {/* Sectors Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {sectors.map((sector, index) => (
             <motion.div
               key={sector.title}
@@ -67,12 +115,15 @@ const ServiceSectorsSection = () => {
               transition={{ duration: 0.4, delay: index * 0.05 }}
               className="group relative"
             >
-              <div className={`absolute -inset-0.5 bg-gradient-to-r from-${sector.color} to-brand-purple rounded-2xl opacity-0 group-hover:opacity-40 blur-sm transition-all duration-300`} />
-              <div className="relative glass-strong rounded-2xl p-6 text-center h-full group-hover:bg-card/90 transition-colors">
-                <div className={`w-14 h-14 rounded-xl bg-${sector.color}/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
+              <div className={`absolute -inset-0.5 bg-gradient-to-r ${sector.gradient} rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-300`} />
+              <div className="relative glass-strong rounded-2xl p-6 h-full group-hover:bg-card/90 transition-colors">
+                {/* Icon with gradient background */}
+                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${sector.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                   <sector.icon className={`w-7 h-7 text-${sector.color}`} />
                 </div>
-                <h3 className="font-semibold text-foreground text-sm lg:text-base">{sector.title}</h3>
+                
+                <h3 className="font-bold text-foreground text-lg mb-2">{sector.title}</h3>
+                <p className="text-sm text-muted-foreground">{sector.description}</p>
               </div>
             </motion.div>
           ))}
