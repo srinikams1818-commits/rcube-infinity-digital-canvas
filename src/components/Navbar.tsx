@@ -52,6 +52,10 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleDropdownClick = (label: string) => {
+    setActiveDropdown(activeDropdown === label ? null : label);
+  };
+
   const DropdownMenu = ({ 
     label, 
     items,
@@ -70,6 +74,7 @@ const Navbar = () => {
         onMouseLeave={() => setActiveDropdown(null)}
       >
         <button
+          onClick={() => handleDropdownClick(label)}
           className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
         >
           {label}
@@ -83,24 +88,24 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.96 }}
               transition={{ duration: 0.15, ease: "easeOut" }}
-              className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 z-50"
+              className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 z-[100]"
             >
               {/* Arrow */}
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-card border-l border-t border-border" />
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-card border-l border-t border-border z-10" />
               
-              <div className="relative bg-card border border-border rounded-2xl shadow-elevated overflow-hidden">
+              <div className="relative bg-card border border-border rounded-2xl shadow-xl overflow-hidden">
                 {/* Gradient header */}
                 <div className="px-4 py-3 bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border-b border-border">
                   <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">{label}</span>
                 </div>
                 
                 <div className="py-2 max-h-72 overflow-y-auto">
-                  {items.map((item, index) => (
+                  {items.map((item) => (
                     <Link
                       key={item.name}
                       to={item.href}
                       onClick={() => setActiveDropdown(null)}
-                      className="group flex items-center gap-3 px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
+                      className="group flex items-center gap-3 px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all cursor-pointer"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-purple/50 group-hover:bg-brand-purple group-hover:scale-125 transition-all" />
                       {item.name}
@@ -112,7 +117,7 @@ const Navbar = () => {
                 <Link
                   to={viewAllLink}
                   onClick={() => setActiveDropdown(null)}
-                  className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-brand-purple hover:text-brand-purple/80 bg-muted/30 border-t border-border transition-colors"
+                  className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-brand-purple hover:text-brand-purple/80 bg-muted/30 border-t border-border transition-colors cursor-pointer"
                 >
                   View All {label}
                   <ArrowRight className="w-4 h-4" />
@@ -208,7 +213,7 @@ const Navbar = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden mt-4 glass rounded-2xl p-6"
+              className="lg:hidden mt-4 bg-card border border-border rounded-2xl p-6 shadow-lg"
             >
               <div className="flex flex-col gap-4">
                 <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-muted-foreground hover:text-foreground py-2">Home</Link>

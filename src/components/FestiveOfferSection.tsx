@@ -12,8 +12,8 @@ const FestiveOfferSection = () => {
   });
 
   useEffect(() => {
-    // Set target date to January 1st, 2025
-    const targetDate = new Date("2025-01-01T00:00:00").getTime();
+    // Set target date to January 1st, 2026
+    const targetDate = new Date("2026-01-01T00:00:00").getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -128,7 +128,7 @@ const FestiveOfferSection = () => {
                   className="text-muted-foreground mb-6"
                 >
                   Celebrate the festive season with exclusive discounts on all our digital marketing services. 
-                  Limited time offer - kickstart your 2025 growth journey today!
+                  Limited time offer - kickstart your 2026 growth journey today!
                 </motion.p>
 
                 <motion.div

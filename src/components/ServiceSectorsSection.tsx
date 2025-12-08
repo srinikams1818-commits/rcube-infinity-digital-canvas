@@ -1,74 +1,57 @@
 import { motion } from "framer-motion";
-import { 
-  Stethoscope, 
-  UtensilsCrossed, 
-  GraduationCap, 
-  Building2, 
-  ShoppingCart, 
-  Hotel, 
-  Car, 
-  Shirt,
-  ArrowRight
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+import sectorHealthcare from "@/assets/sector-healthcare.png";
+import sectorFood from "@/assets/sector-food.png";
+import sectorEducation from "@/assets/sector-education.png";
+import sectorRealestate from "@/assets/sector-realestate.png";
+import sectorEcommerce from "@/assets/sector-ecommerce.png";
+import sectorHospitality from "@/assets/sector-hospitality.png";
+import sectorAutomotive from "@/assets/sector-automotive.png";
+import sectorFashion from "@/assets/sector-fashion.png";
+
 const sectors = [
   { 
-    icon: Stethoscope, 
     title: "Healthcare", 
-    description: "Digital solutions for clinics, hospitals & wellness brands",
-    color: "brand-blue",
-    gradient: "from-blue-500/20 to-cyan-500/20",
+    description: "Digital solutions for clinics & hospitals",
+    image: sectorHealthcare,
   },
   { 
-    icon: UtensilsCrossed, 
     title: "Food & Restaurant", 
-    description: "Grow your restaurant with online ordering & delivery marketing",
-    color: "brand-orange",
-    gradient: "from-orange-500/20 to-red-500/20",
+    description: "Grow with online ordering & delivery",
+    image: sectorFood,
   },
   { 
-    icon: GraduationCap, 
     title: "Education", 
-    description: "Attract more students with targeted education marketing",
-    color: "brand-purple",
-    gradient: "from-purple-500/20 to-pink-500/20",
+    description: "Attract more students online",
+    image: sectorEducation,
   },
   { 
-    icon: Building2, 
     title: "Real Estate", 
-    description: "Generate quality leads for properties & developments",
-    color: "brand-blue",
-    gradient: "from-blue-500/20 to-indigo-500/20",
+    description: "Generate quality property leads",
+    image: sectorRealestate,
   },
   { 
-    icon: ShoppingCart, 
     title: "E-commerce", 
-    description: "Scale your online store with performance marketing",
-    color: "brand-orange",
-    gradient: "from-orange-500/20 to-yellow-500/20",
+    description: "Scale your online store",
+    image: sectorEcommerce,
   },
   { 
-    icon: Hotel, 
     title: "Hospitality", 
-    description: "Increase bookings for hotels, resorts & travel businesses",
-    color: "brand-purple",
-    gradient: "from-purple-500/20 to-violet-500/20",
+    description: "Increase hotel bookings",
+    image: sectorHospitality,
   },
   { 
-    icon: Car, 
     title: "Automotive", 
-    description: "Drive showroom visits & service bookings",
-    color: "brand-blue",
-    gradient: "from-blue-500/20 to-sky-500/20",
+    description: "Drive showroom visits",
+    image: sectorAutomotive,
   },
   { 
-    icon: Shirt, 
     title: "Fashion", 
-    description: "Build brand awareness for fashion & lifestyle brands",
-    color: "brand-orange",
-    gradient: "from-orange-500/20 to-pink-500/20",
+    description: "Build brand awareness",
+    image: sectorFashion,
   },
 ];
 
@@ -105,7 +88,7 @@ const ServiceSectorsSection = () => {
         </motion.div>
 
         {/* Sectors Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {sectors.map((sector, index) => (
             <motion.div
               key={sector.title}
@@ -115,15 +98,23 @@ const ServiceSectorsSection = () => {
               transition={{ duration: 0.4, delay: index * 0.05 }}
               className="group relative"
             >
-              <div className={`absolute -inset-0.5 bg-gradient-to-r ${sector.gradient} rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-300`} />
-              <div className="relative glass-strong rounded-2xl p-6 h-full group-hover:bg-card/90 transition-colors">
-                {/* Icon with gradient background */}
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${sector.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <sector.icon className={`w-7 h-7 text-${sector.color}`} />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-purple to-brand-blue rounded-2xl opacity-0 group-hover:opacity-40 blur-sm transition-all duration-300" />
+              <div className="relative glass-strong rounded-2xl overflow-hidden h-full group-hover:bg-card/90 transition-colors">
+                {/* Image */}
+                <div className="relative h-40 overflow-hidden">
+                  <img 
+                    src={sector.image} 
+                    alt={sector.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
                 </div>
                 
-                <h3 className="font-bold text-foreground text-lg mb-2">{sector.title}</h3>
-                <p className="text-sm text-muted-foreground">{sector.description}</p>
+                {/* Content */}
+                <div className="p-4">
+                  <h3 className="font-bold text-foreground text-lg mb-1">{sector.title}</h3>
+                  <p className="text-sm text-muted-foreground">{sector.description}</p>
+                </div>
               </div>
             </motion.div>
           ))}
