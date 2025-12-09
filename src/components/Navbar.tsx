@@ -69,7 +69,7 @@ const Navbar = () => {
     
     return (
       <div 
-        className="relative"
+        className="relative group"
         onMouseEnter={() => setActiveDropdown(label)}
         onMouseLeave={() => setActiveDropdown(null)}
       >
@@ -81,6 +81,9 @@ const Navbar = () => {
           <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
         </button>
         
+        {/* Invisible bridge to prevent gap issues */}
+        <div className="absolute top-full left-0 right-0 h-4" />
+        
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -88,10 +91,10 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.96 }}
               transition={{ duration: 0.15, ease: "easeOut" }}
-              className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 z-[100]"
+              className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 z-[100]"
             >
               {/* Arrow */}
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-card border-l border-t border-border z-10" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-card border-l border-t border-border z-10" />
               
               <div className="relative bg-card border border-border rounded-2xl shadow-xl overflow-hidden">
                 {/* Gradient header */}
