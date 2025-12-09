@@ -6,36 +6,36 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const services = [
-  { name: "SEO & Local SEO", href: "/services" },
-  { name: "Social Media Marketing", href: "/services" },
-  { name: "Google & Meta Ads", href: "/services" },
-  { name: "Web Development", href: "/services" },
-  { name: "Creative Branding", href: "/services" },
-  { name: "Video Editing", href: "/services" },
-  { name: "Photo Editing", href: "/services" },
-  { name: "Graphic Design", href: "/services" },
+  { name: "SEO & Local SEO", href: "/services#seo" },
+  { name: "Social Media Marketing", href: "/services#social-media" },
+  { name: "Google & Meta Ads", href: "/services#ads" },
+  { name: "Web Development", href: "/services#web" },
+  { name: "Creative Branding", href: "/services#branding" },
+  { name: "Video Editing", href: "/services#video" },
+  { name: "Photo Editing", href: "/services#photo" },
+  { name: "Graphic Design", href: "/services#graphic" },
 ];
 
 const sectors = [
-  { name: "Healthcare", href: "/sectors" },
-  { name: "Food & Restaurant", href: "/sectors" },
-  { name: "Education", href: "/sectors" },
-  { name: "Real Estate", href: "/sectors" },
-  { name: "E-commerce", href: "/sectors" },
-  { name: "Hospitality", href: "/sectors" },
-  { name: "Automotive", href: "/sectors" },
-  { name: "Fashion & Lifestyle", href: "/sectors" },
+  { name: "Healthcare", href: "/sectors#healthcare" },
+  { name: "Food & Restaurant", href: "/sectors#food" },
+  { name: "Education", href: "/sectors#education" },
+  { name: "Real Estate", href: "/sectors#realestate" },
+  { name: "E-commerce", href: "/sectors#ecommerce" },
+  { name: "Hospitality", href: "/sectors#hospitality" },
+  { name: "Automotive", href: "/sectors#automotive" },
+  { name: "Fashion & Lifestyle", href: "/sectors#fashion" },
 ];
 
 const areas = [
-  { name: "Chennai", href: "/#locations" },
-  { name: "Coimbatore", href: "/#locations" },
-  { name: "Madurai", href: "/#locations" },
-  { name: "Trichy", href: "/#locations" },
-  { name: "Salem", href: "/#locations" },
-  { name: "Tiruppur", href: "/#locations" },
-  { name: "Erode", href: "/#locations" },
-  { name: "Vellore", href: "/#locations" },
+  { name: "Chennai", href: "/contact#chennai" },
+  { name: "Coimbatore", href: "/contact#coimbatore" },
+  { name: "Madurai", href: "/contact#madurai" },
+  { name: "Trichy", href: "/contact#trichy" },
+  { name: "Salem", href: "/contact#salem" },
+  { name: "Tiruppur", href: "/contact#tiruppur" },
+  { name: "Erode", href: "/contact#erode" },
+  { name: "Vellore", href: "/contact#vellore" },
 ];
 
 const Navbar = () => {
@@ -170,7 +170,7 @@ const Navbar = () => {
             {/* Dropdowns */}
             <DropdownMenu label="Services" items={services} viewAllLink="/services" />
             <DropdownMenu label="Sectors" items={sectors} viewAllLink="/sectors" />
-            <DropdownMenu label="Areas" items={areas} viewAllLink="/#locations" />
+            <DropdownMenu label="Areas" items={areas} viewAllLink="/contact" />
             
             <Link
               to="/blog"
