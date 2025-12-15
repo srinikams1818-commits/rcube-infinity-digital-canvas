@@ -76,7 +76,7 @@ const CTASection = () => {
               {/* Trust Badge */}
               <div className="mt-10 pt-8 border-t border-border/50">
                 <p className="text-sm text-muted-foreground">
-                  ⭐ Rated 4.9/5 by 150+ clients across Tamil Nadu
+                  ⭐ Rated 4.9/5 by 45+ clients across Tamil Nadu
                 </p>
               </div>
             </div>
