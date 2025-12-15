@@ -133,7 +133,7 @@ const AboutSection = () => {
             {/* Stats Row */}
             <div className="flex flex-wrap gap-8">
               <div>
-                <div className="text-3xl font-bold text-gradient">150+</div>
+                <div className="text-3xl font-bold text-gradient">45+</div>
                 <div className="text-sm text-muted-foreground">Happy Clients</div>
               </div>
               <div>
