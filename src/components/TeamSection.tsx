@@ -14,17 +14,18 @@ const team = [
     initials: "MS",
     color: "brand-blue",
   },
-  {
-    name: "Anitha",
-    role: "Creative Director",
-    initials: "A",
-    color: "brand-orange",
-  },
+  
   {
     name: "Indhu Mathi",
     role: "Head of Marketing",
     initials: "IM",
     color: "brand-purple",
+  },
+  {
+    name: "Anitha",
+    role: "Creative Director",
+    initials: "A",
+    color: "brand-orange",
   },
 ];
 
