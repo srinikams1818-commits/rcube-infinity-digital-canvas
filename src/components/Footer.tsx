@@ -55,7 +55,7 @@ const Footer = () => {
               <img 
                 src={logo} 
                 alt="R Cube Infinity Solutions" 
-                className="h-20 w-auto object-contain"
+                className="h-24 w-auto object-contain"
               />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
@@ -73,9 +73,9 @@ const Footer = () => {
                 <Clock className="w-4 h-4 text-brand-purple" />
                 9:30 AM - 7:00 PM
               </div>
-              <a href="mailto:info@rcubeinfinity.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <a href="mailto:rcubeinfinitysolutions@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="w-4 h-4 text-brand-purple" />
-                info@rcubeinfinity.com
+                rcubeinfinitysolutions@gmail.com
               </a>
             </div>
             

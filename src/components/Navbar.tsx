@@ -133,7 +133,7 @@ const Navbar = () => {
             <img 
               src={logo} 
               alt="R Cube Infinity Solutions" 
-              className="h-16 w-auto object-contain"
+              className="h-20 w-auto object-contain"
             />
           </Link>
 
