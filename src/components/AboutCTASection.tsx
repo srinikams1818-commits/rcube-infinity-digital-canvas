@@ -34,7 +34,7 @@ const AboutCTASection = () => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <a href="https://wa.me/919840562374">
+            <a href="https://wa.me/918438937733">
               <Button variant="heroOutline" size="xl" className="group">
                 <Phone className="w-5 h-5" />
                 Call Us Now
@@ -43,7 +43,7 @@ const AboutCTASection = () => {
           </div>
 
           <p className="mt-8 text-sm text-muted-foreground">
-            📞 +91 98405 62374 | 📧 hello@rcubeinfinity.com
+            📞 +91 84389 37733 | 📧 rcubeinfinitysolutions@gmail.com
           </p>
         </motion.div>
       </div>

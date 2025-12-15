@@ -226,7 +226,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Call Us</p>
-                    <p className="text-sm font-semibold text-foreground">+91 98765 43210</p>
+                    <p className="text-sm font-semibold text-foreground">+91 84389 37733</p>
                   </div>
                 </div>
 
@@ -236,7 +236,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Email Us</p>
-                    <p className="text-sm font-semibold text-foreground">hello@rcubeinfinity.com</p>
+                    <p className="text-sm font-semibold text-foreground">rcubeinfinitysolutions@gmail.com</p>
                   </div>
                 </div>
 
@@ -246,7 +246,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Business Hours</p>
-                    <p className="text-sm font-semibold text-foreground">Mon - Sat: 9AM - 7PM</p>
+                    <p className="text-sm font-semibold text-foreground">Mon - Sat: 9:30 AM - 7 PM</p>
                   </div>
                 </div>
               </div>
