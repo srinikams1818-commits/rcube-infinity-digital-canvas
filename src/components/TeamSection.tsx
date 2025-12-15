@@ -8,18 +8,17 @@ const team = [
     initials: "R",
     color: "brand-purple",
   },
+   {
+    name: "Indhu Mathi",
+    role: "Head of Marketing",
+    initials: "IM",
+    color: "brand-purple",
+  },
   {
     name: "Mari Selvam",
     role: "SEO Specialist",
     initials: "MS",
     color: "brand-blue",
-  },
-  
-  {
-    name: "Indhu Mathi",
-    role: "Head of Marketing",
-    initials: "IM",
-    color: "brand-purple",
   },
   {
     name: "Anitha",
