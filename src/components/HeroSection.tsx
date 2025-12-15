@@ -93,7 +93,7 @@ const HeroSection = () => {
             className="mt-16 pt-10 border-t border-border/50"
           >
             <p className="text-sm text-muted-foreground mb-6">
-              Trusted by 150+ businesses to elevate their digital presence
+              Trusted by 45+ businesses to elevate their digital presence
             </p>
             <div className="flex flex-wrap items-center justify-center gap-8">
               {["SEO Excellence", "Brand Strategy", "Creative Design", "Performance Marketing", "Web Solutions"].map((item, index) => (
