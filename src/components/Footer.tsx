@@ -4,7 +4,9 @@ import {
   Instagram, 
   Linkedin, 
   Youtube,
-  Phone
+  Phone,
+  Clock,
+  Mail
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
@@ -25,13 +27,6 @@ const footerLinks = {
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ],
-  locations: [
-    { name: "Chennai", href: "/#locations" },
-    { name: "Coimbatore", href: "/#locations" },
-    { name: "Madurai", href: "/#locations" },
-    { name: "Trichy", href: "/#locations" },
-    { name: "Salem", href: "/#locations" },
-  ],
 };
 
 const socialLinks = [
@@ -39,7 +34,7 @@ const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/rcubeinfinitysolutions", label: "Instagram" },
   { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
   { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: Phone, href: "https://wa.me/919840562374", label: "WhatsApp" },
+  { icon: Phone, href: "https://wa.me/918438937733", label: "WhatsApp" },
 ];
 
 const Footer = () => {
@@ -53,20 +48,37 @@ const Footer = () => {
       <div className="absolute inset-0 bg-gradient-mesh opacity-10" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-6 group">
               <img 
                 src={logo} 
                 alt="R Cube Infinity Solutions" 
-                className="h-14 w-auto object-contain"
+                className="h-20 w-auto object-contain"
               />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Top digital marketing agency in Tamil Nadu, helping businesses grow with 
               data-driven SEO, social media, and web development solutions.
             </p>
+            
+            {/* Contact Info */}
+            <div className="space-y-3 mb-6">
+              <a href="tel:+918438937733" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Phone className="w-4 h-4 text-brand-purple" />
+                +91 84389 37733
+              </a>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Clock className="w-4 h-4 text-brand-purple" />
+                9:30 AM - 7:00 PM
+              </div>
+              <a href="mailto:info@rcubeinfinity.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Mail className="w-4 h-4 text-brand-purple" />
+                info@rcubeinfinity.com
+              </a>
+            </div>
+            
             {/* Social Links */}
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
@@ -122,23 +134,30 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Locations */}
+          {/* Contact Info */}
           <div>
             <h3 className="text-sm font-bold text-foreground uppercase tracking-wider mb-6">
-              Locations
+              Contact Us
             </h3>
-            <ul className="space-y-3">
-              {footerLinks.locations.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground animated-underline transition-colors inline-flex items-center gap-1"
-                  >
-                    📍 {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Ready to grow your business? Get in touch with our team today.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-brand-purple/20 text-brand-purple rounded-lg hover:bg-brand-purple/30 transition-colors text-sm font-medium"
+              >
+                Get Free Consultation
+              </Link>
+              <div className="pt-4">
+                <p className="text-xs text-muted-foreground">
+                  <strong className="text-foreground">Happy Clients:</strong> 45+
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  <strong className="text-foreground">Business Hours:</strong> 9:30 AM - 7:00 PM
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
