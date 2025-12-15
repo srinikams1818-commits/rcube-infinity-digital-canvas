@@ -150,9 +150,6 @@ const Footer = () => {
                 Get Free Consultation
               </Link>
               <div className="pt-4">
-                <p className="text-xs text-muted-foreground">
-                  <strong className="text-foreground">Happy Clients:</strong> 45+
-                </p>
                 <p className="text-xs text-muted-foreground mt-1">
                   <strong className="text-foreground">Business Hours:</strong> 9:30 AM - 7:00 PM
                 </p>
