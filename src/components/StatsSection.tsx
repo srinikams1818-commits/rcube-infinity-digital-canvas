@@ -6,7 +6,7 @@ import { Users, TrendingUp, MapPin, Award } from "lucide-react";
 const stats = [
   {
     icon: Users,
-    value: 150,
+    value: 45,
     suffix: "+",
     label: "Happy Clients",
     description: "Businesses transformed",

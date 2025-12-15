@@ -27,17 +27,6 @@ const sectors = [
   { name: "Fashion & Lifestyle", href: "/sectors#fashion" },
 ];
 
-const areas = [
-  { name: "Chennai", href: "/contact#chennai" },
-  { name: "Coimbatore", href: "/contact#coimbatore" },
-  { name: "Madurai", href: "/contact#madurai" },
-  { name: "Trichy", href: "/contact#trichy" },
-  { name: "Salem", href: "/contact#salem" },
-  { name: "Tiruppur", href: "/contact#tiruppur" },
-  { name: "Erode", href: "/contact#erode" },
-  { name: "Vellore", href: "/contact#vellore" },
-];
-
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -69,7 +58,7 @@ const Navbar = () => {
     
     return (
       <div 
-        className="relative group"
+        className="relative"
         onMouseEnter={() => setActiveDropdown(label)}
         onMouseLeave={() => setActiveDropdown(null)}
       >
@@ -81,9 +70,6 @@ const Navbar = () => {
           <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
         </button>
         
-        {/* Invisible bridge to prevent gap issues */}
-        <div className="absolute top-full left-0 right-0 h-4" />
-        
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -91,11 +77,8 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.96 }}
               transition={{ duration: 0.15, ease: "easeOut" }}
-              className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 z-[100]"
+              className="absolute top-full left-0 mt-1 w-64 z-[100]"
             >
-              {/* Arrow */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-card border-l border-t border-border z-10" />
-              
               <div className="relative bg-card border border-border rounded-2xl shadow-xl overflow-hidden">
                 {/* Gradient header */}
                 <div className="px-4 py-3 bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border-b border-border">
@@ -151,7 +134,7 @@ const Navbar = () => {
             <img 
               src={logo} 
               alt="R Cube Infinity Solutions" 
-              className="h-12 w-auto object-contain"
+              className="h-16 w-auto object-contain"
             />
           </Link>
 
@@ -173,7 +156,6 @@ const Navbar = () => {
             {/* Dropdowns */}
             <DropdownMenu label="Services" items={services} viewAllLink="/services" />
             <DropdownMenu label="Sectors" items={sectors} viewAllLink="/sectors" />
-            <DropdownMenu label="Areas" items={areas} viewAllLink="/contact" />
             
             <Link
               to="/blog"

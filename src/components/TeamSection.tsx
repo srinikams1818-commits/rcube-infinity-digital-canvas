@@ -3,27 +3,27 @@ import { Linkedin, Mail } from "lucide-react";
 
 const team = [
   {
-    name: "Rajesh Kumar",
+    name: "Revanth",
     role: "Founder & CEO",
-    initials: "RK",
+    initials: "R",
     color: "brand-purple",
   },
   {
-    name: "Priya Sharma",
-    role: "Head of Marketing",
-    initials: "PS",
+    name: "Mari Selvam",
+    role: "SEO Specialist",
+    initials: "MS",
     color: "brand-blue",
   },
   {
-    name: "Arjun Menon",
-    role: "Lead Developer",
-    initials: "AM",
+    name: "Anitha",
+    role: "Creative Director",
+    initials: "A",
     color: "brand-orange",
   },
   {
-    name: "Divya Ramesh",
-    role: "Creative Director",
-    initials: "DR",
+    name: "Indhu Mathi",
+    role: "Head of Marketing",
+    initials: "IM",
     color: "brand-purple",
   },
 ];
