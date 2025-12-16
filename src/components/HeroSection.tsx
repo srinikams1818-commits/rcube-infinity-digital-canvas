@@ -46,11 +46,11 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
           >
-            <span className="text-foreground">Ignite Your </span>
-            <span className="text-gradient">Brand's</span>
+            <span className="text-gradient">R Cube Infinity</span>
             <br />
+            <span className="text-foreground">Ignite Your </span>
             <span className="text-gradient-secondary">Digital</span>
-            <span className="text-foreground"> Success Story</span>
+            <span className="text-foreground"> Success</span>
           </motion.h1>
 
           {/* Subheadline */}
