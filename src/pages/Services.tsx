@@ -5,6 +5,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 import serviceSeo from "@/assets/service-seo.png";
 import serviceSocial from "@/assets/service-social.png";
@@ -22,54 +23,63 @@ const services = [
     description: "Dominate search results with our data-driven SEO strategies. We optimize your online presence to attract local customers and drive organic growth.",
     image: serviceSeo,
     features: ["Keyword Research", "On-Page Optimization", "Local Listings", "Link Building"],
+    slug: "/services/seo",
   },
   {
     title: "Social Media Marketing",
     description: "Build meaningful connections with your audience across all social platforms. Our creative campaigns drive engagement and brand loyalty.",
     image: serviceSocial,
     features: ["Content Strategy", "Community Management", "Influencer Marketing", "Analytics"],
+    slug: "/services/social-media",
   },
   {
     title: "Google & Meta Ads",
     description: "Maximize your ROI with precision-targeted advertising campaigns. We create compelling ads that convert visitors into customers.",
     image: serviceAds,
     features: ["Campaign Strategy", "A/B Testing", "Retargeting", "Performance Tracking"],
+    slug: "/services/google-ads",
   },
   {
     title: "Web Development",
     description: "Create stunning, high-performance websites that captivate visitors and drive conversions. Modern design meets cutting-edge technology.",
     image: serviceWeb,
     features: ["Responsive Design", "E-commerce", "CMS Integration", "Speed Optimization"],
+    slug: "/services/web-development",
   },
   {
     title: "Creative Branding",
     description: "Build a memorable brand identity that resonates with your audience. From logos to complete brand guidelines, we craft your visual story.",
     image: serviceBranding,
     features: ["Logo Design", "Brand Guidelines", "Visual Identity", "Brand Strategy"],
+    slug: "/services/branding",
   },
   {
     title: "Email Marketing",
     description: "Nurture leads and drive sales with personalized email campaigns. Our automation strategies keep your audience engaged.",
     image: serviceEmail,
     features: ["Email Automation", "Newsletter Design", "Segmentation", "Analytics"],
+    slug: "/services/email-marketing",
   },
   {
     title: "Video Editing",
     description: "Transform raw footage into compelling visual stories. Professional video editing that captivates and converts your audience.",
     image: serviceVideo,
     features: ["Commercial Videos", "Social Media Content", "Motion Graphics", "Color Grading"],
+    slug: "/services/video-editing",
   },
   {
     title: "Photo Editing",
     description: "Elevate your visual content with professional photo editing. From product photography to creative retouching.",
     image: servicePhoto,
     features: ["Product Photography", "Retouching", "Background Removal", "Color Correction"],
+    slug: "/services/photo-editing",
   },
   {
     title: "Graphic Design",
     description: "Eye-catching designs that communicate your message effectively. From marketing materials to digital assets.",
     image: serviceGraphic,
     features: ["Marketing Materials", "Social Graphics", "Presentations", "Print Design"],
+    slug: "/services/graphic-design",
   },
 ];
 
@@ -143,9 +153,11 @@ const Services = () => {
                         </span>
                       ))}
                     </div>
-                    <Button variant="ghost" size="sm" className="group/btn p-0 h-auto text-brand-purple hover:text-brand-purple/80">
-                      Learn More <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
+                    <Link to={service.slug}>
+                      <Button variant="ghost" size="sm" className="group/btn p-0 h-auto text-brand-purple hover:text-brand-purple/80">
+                        Learn More <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
