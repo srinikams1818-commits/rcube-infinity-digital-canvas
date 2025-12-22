@@ -236,7 +236,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Email Us</p>
-                    <p className="text-sm font-semibold text-foreground">rcubeinfinitysolutions@gmail.com</p>
+                    <p className="text-sm font-semibold text-foreground">info@rcubeinfinitysolutions.com</p>
                   </div>
                 </div>
 

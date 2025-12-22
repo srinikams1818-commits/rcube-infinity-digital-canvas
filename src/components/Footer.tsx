@@ -30,7 +30,7 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+  { icon: Facebook, href: "https://www.facebook.com/share/1FP9EPr4jW/", label: "Facebook" },
   { icon: Instagram, href: "https://www.instagram.com/rcubeinfinitysolutions", label: "Instagram" },
   { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
   { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
@@ -73,9 +73,9 @@ const Footer = () => {
                 <Clock className="w-4 h-4 text-brand-purple" />
                 9:30 AM - 7:00 PM
               </div>
-              <a href="mailto:rcubeinfinitysolutions@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <a href="mailto:info@rcubeinfinitysolutions.com " className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="w-4 h-4 text-brand-purple" />
-                rcubeinfinitysolutions@gmail.com
+                info@rcubeinfinitysolutions.com 
               </a>
             </div>
             
