@@ -67,28 +67,30 @@ const HeroSection = () => {
           src={slide.background}
           alt="Digital marketing background" 
           className="w-full h-full object-cover"
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        {/* Stronger overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        <div className="absolute inset-0 bg-background/40" />
       </div>
       
       {/* Animated Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-purple/15 rounded-full blur-3xl animate-blob" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl animate-blob animation-delay-400" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-purple/10 rounded-full blur-3xl animate-blob" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-blue/10 rounded-full blur-3xl animate-blob animation-delay-400" />
 
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass hover:bg-primary/20 transition-all duration-300 group"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-primary/20 hover:border-primary/50 transition-all duration-300 group"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass hover:bg-primary/20 transition-all duration-300 group"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-primary/20 hover:border-primary/50 transition-all duration-300 group"
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" />
@@ -102,10 +104,10 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-background/60 backdrop-blur-md border border-brand-orange/30 mb-8"
           >
             <Sparkles className="w-4 h-4 text-brand-orange" />
-            <span className="text-sm font-medium text-muted-foreground">
+            <span className="text-sm font-semibold text-foreground">
               {slide.badge}
             </span>
           </motion.div>
@@ -116,12 +118,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 drop-shadow-lg"
           >
-            <span className="text-gradient">{slide.headline}</span>
+            <span className="text-gradient drop-shadow-md">{slide.headline}</span>
             <br />
-            <span className="text-foreground">{slide.subheadline.split(" ").slice(0, -1).join(" ")} </span>
-            <span className="text-gradient-secondary">{slide.subheadline.split(" ").slice(-1)}</span>
+            <span className="text-foreground drop-shadow-md">{slide.subheadline.split(" ").slice(0, -1).join(" ")} </span>
+            <span className="text-gradient-secondary drop-shadow-md">{slide.subheadline.split(" ").slice(-1)}</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -130,7 +132,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed"
+            className="text-lg sm:text-xl text-foreground/80 max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-sm"
           >
             {slide.description}
           </motion.p>
