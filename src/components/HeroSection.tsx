@@ -1,10 +1,55 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Play } from "lucide-react";
+import { ArrowRight, Sparkles, Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
 import heroBackground from "@/assets/hero-background.png";
 
+const heroSlides = [
+  {
+    badge: "Your Partner in Digital Excellence",
+    headline: "R Cube Infinity",
+    subheadline: "Ignite Your Digital Success",
+    description: "We craft powerful digital experiences that captivate audiences, amplify your brand, and drive measurable results.",
+    ctaPrimary: { text: "Start Your Journey", link: "/contact" },
+    ctaSecondary: { text: "Explore Services", link: "/services" },
+  },
+  {
+    badge: "Creative Digital Solutions",
+    headline: "R Cube Infinity",
+    subheadline: "Transform Your Brand",
+    description: "From stunning visuals to strategic campaigns, we help businesses stand out in the digital landscape.",
+    ctaPrimary: { text: "Get Started", link: "/contact" },
+    ctaSecondary: { text: "Our Services", link: "/services" },
+  },
+  {
+    badge: "Results-Driven Marketing",
+    headline: "R Cube Infinity",
+    subheadline: "Grow Your Business",
+    description: "Data-driven strategies and creative excellence to help you reach your target audience and achieve your goals.",
+    ctaPrimary: { text: "Contact Us", link: "/contact" },
+    ctaSecondary: { text: "Learn More", link: "/about" },
+  },
+];
+
 const HeroSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 6000);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
+  const slide = heroSlides[currentSlide];
+
   return (
     <section
       id="home"
@@ -24,10 +69,27 @@ const HeroSection = () => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-purple/15 rounded-full blur-3xl animate-blob" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl animate-blob animation-delay-400" />
 
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass hover:bg-primary/20 transition-all duration-300 group"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass hover:bg-primary/20 transition-all duration-300 group"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" />
+      </button>
+
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
           <motion.div
+            key={`badge-${currentSlide}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -35,54 +97,76 @@ const HeroSection = () => {
           >
             <Sparkles className="w-4 h-4 text-brand-orange" />
             <span className="text-sm font-medium text-muted-foreground">
-              Your Partner in Digital Excellence
+              {slide.badge}
             </span>
           </motion.div>
 
           {/* Main Headline */}
           <motion.h1
+            key={`headline-${currentSlide}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
           >
-            <span className="text-gradient">R Cube Infinity</span>
+            <span className="text-gradient">{slide.headline}</span>
             <br />
-            <span className="text-foreground">Ignite Your </span>
-            <span className="text-gradient-secondary">Digital</span>
-            <span className="text-foreground"> Success</span>
+            <span className="text-foreground">{slide.subheadline.split(" ").slice(0, -1).join(" ")} </span>
+            <span className="text-gradient-secondary">{slide.subheadline.split(" ").slice(-1)}</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
+            key={`description-${currentSlide}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed"
           >
-            We craft powerful digital experiences that captivate audiences, amplify your brand, 
-            and drive measurable results. Let's build something extraordinary together.
+            {slide.description}
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
+            key={`cta-${currentSlide}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link to="/contact">
+            <Link to={slide.ctaPrimary.link}>
               <Button variant="hero" size="xl" className="group">
-                Start Your Journey
+                {slide.ctaPrimary.text}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link to="/services">
+            <Link to={slide.ctaSecondary.link}>
               <Button variant="heroOutline" size="xl" className="group">
                 <Play className="w-5 h-5" />
-                Explore Services
+                {slide.ctaSecondary.text}
               </Button>
             </Link>
+          </motion.div>
+
+          {/* Slide Indicators */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex items-center justify-center gap-3 mt-10"
+          >
+            {heroSlides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentSlide 
+                    ? "w-8 bg-gradient-to-r from-brand-purple to-brand-blue" 
+                    : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </motion.div>
 
           {/* Trust Indicators */}
@@ -90,7 +174,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-16 pt-10 border-t border-border/50"
+            className="mt-12 pt-10 border-t border-border/50"
           >
             <p className="text-sm text-muted-foreground mb-6">
               Trusted by 45+ businesses to elevate their digital presence
