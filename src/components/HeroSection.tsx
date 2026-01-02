@@ -3,10 +3,13 @@ import { ArrowRight, Sparkles, Play, ChevronLeft, ChevronRight } from "lucide-re
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
-import heroBackground from "@/assets/hero-background.png";
+import heroSlide1 from "@/assets/hero-slide-1.png";
+import heroSlide2 from "@/assets/hero-slide-2.png";
+import heroSlide3 from "@/assets/hero-slide-3.png";
 
 const heroSlides = [
   {
+    background: heroSlide1,
     badge: "Your Partner in Digital Excellence",
     headline: "R Cube Infinity",
     subheadline: "Ignite Your Digital Success",
@@ -15,6 +18,7 @@ const heroSlides = [
     ctaSecondary: { text: "Explore Services", link: "/services" },
   },
   {
+    background: heroSlide2,
     badge: "Creative Digital Solutions",
     headline: "R Cube Infinity",
     subheadline: "Transform Your Brand",
@@ -23,6 +27,7 @@ const heroSlides = [
     ctaSecondary: { text: "Our Services", link: "/services" },
   },
   {
+    background: heroSlide3,
     badge: "Results-Driven Marketing",
     headline: "R Cube Infinity",
     subheadline: "Grow Your Business",
@@ -57,10 +62,14 @@ const HeroSection = () => {
     >
       {/* Hero Background Image */}
       <div className="absolute inset-0">
-        <img 
-          src={heroBackground} 
+        <motion.img 
+          key={`bg-${currentSlide}`}
+          src={slide.background}
           alt="Digital marketing background" 
           className="w-full h-full object-cover"
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>

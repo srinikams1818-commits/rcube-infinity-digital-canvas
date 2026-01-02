@@ -66,7 +66,7 @@ const AboutSection = () => {
                 {/* Stats Overlay */}
                 <div className="absolute bottom-8 left-8 right-8">
                   <div className="glass rounded-xl px-4 py-3">
-                    <h3 className="text-2xl font-bold text-foreground">10+ Years</h3>
+                    <h3 className="text-2xl font-bold text-foreground">3+ Years</h3>
                     <p className="text-sm text-muted-foreground">Digital Excellence</p>
                   </div>
                 </div>
