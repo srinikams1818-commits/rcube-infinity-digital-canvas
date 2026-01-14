@@ -6,14 +6,14 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const services = [
-  { name: "SEO & Local SEO", href: "/services#seo" },
-  { name: "Social Media Marketing", href: "/services#social-media" },
-  { name: "Google & Meta Ads", href: "/services#ads" },
-  { name: "Web Development", href: "/services#web" },
-  { name: "Creative Branding", href: "/services#branding" },
-  { name: "Video Editing", href: "/services#video" },
-  { name: "Photo Editing", href: "/services#photo" },
-  { name: "Graphic Design", href: "/services#graphic" },
+  { name: "SEO & Local SEO", href: "/services/seo" },
+  { name: "Social Media Marketing", href: "/services/social-media" },
+  { name: "Google & Meta Ads", href: "/services/google-ads" },
+  { name: "Web Development", href: "/services/web-development" },
+  { name: "Creative Branding", href: "/services/branding" },
+  { name: "Video Editing", href: "/services/video-editing" },
+  { name: "Photo Editing", href: "/services/photo-editing" },
+  { name: "Graphic Design", href: "/services/graphic-design" },
 ];
 
 const sectors = [
