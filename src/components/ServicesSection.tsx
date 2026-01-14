@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import serviceSeo from "@/assets/service-seo.png";
 import serviceSocial from "@/assets/service-social.png";
 import serviceAds from "@/assets/service-ads.png";
@@ -16,54 +17,63 @@ const services = [
     title: "SEO & Local SEO",
     description: "Dominate search rankings with data-driven strategies that attract high-intent customers and establish your authority online.",
     gradient: "from-brand-purple to-brand-blue",
+    href: "/services/seo",
   },
   {
     image: serviceSocial,
     title: "Social Media Marketing",
     description: "Build meaningful connections with your audience through compelling content that sparks engagement and drives loyalty.",
     gradient: "from-brand-orange to-brand-purple",
+    href: "/services/social-media",
   },
   {
     image: serviceAds,
     title: "Google & Meta Ads",
     description: "Maximize every rupee with precision-targeted campaigns that reach the right people at the right moment.",
     gradient: "from-brand-blue to-brand-purple",
+    href: "/services/google-ads",
   },
   {
     image: serviceWeb,
     title: "Web Design & Development",
     description: "Create stunning, lightning-fast websites that captivate visitors and convert them into loyal customers.",
     gradient: "from-brand-purple to-brand-orange",
+    href: "/services/web-development",
   },
   {
     image: serviceBranding,
     title: "Creative Branding",
     description: "Develop a distinctive brand identity that tells your unique story and resonates deeply with your audience.",
     gradient: "from-brand-orange to-brand-blue",
+    href: "/services/branding",
   },
   {
     image: serviceEmail,
     title: "Email & Automation",
     description: "Nurture leads and boost retention with intelligent workflows that deliver the right message at the perfect time.",
     gradient: "from-brand-blue to-brand-orange",
+    href: "/services/email-marketing",
   },
   {
     image: serviceVideo,
     title: "Video Editing",
     description: "Transform raw footage into cinematic masterpieces that captivate audiences and amplify your brand story.",
     gradient: "from-brand-purple to-brand-blue",
+    href: "/services/video-editing",
   },
   {
     image: servicePhoto,
     title: "Photo Editing",
     description: "Elevate your visuals with professional retouching and color grading that makes every image unforgettable.",
     gradient: "from-brand-orange to-brand-purple",
+    href: "/services/photo-editing",
   },
   {
     image: serviceGraphic,
     title: "Graphic Design",
     description: "Create eye-catching designs that communicate your message clearly and leave a lasting visual impression.",
     gradient: "from-brand-blue to-brand-orange",
+    href: "/services/graphic-design",
   },
 ];
 
@@ -136,10 +146,13 @@ const ServicesSection = () => {
                   </p>
 
                   {/* Link */}
-                  <div className="flex items-center gap-2 text-sm font-semibold text-brand-purple group-hover:text-brand-orange transition-colors">
+                  <Link 
+                    to={service.href}
+                    className="flex items-center gap-2 text-sm font-semibold text-brand-purple group-hover:text-brand-orange transition-colors"
+                  >
                     Learn More
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </div>
+                  </Link>
                 </div>
               </div>
             </motion.div>
