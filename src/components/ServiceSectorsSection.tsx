@@ -17,41 +17,49 @@ const sectors = [
     title: "Healthcare", 
     description: "Digital solutions for clinics & hospitals",
     image: sectorHealthcare,
+    href: "/sectors/healthcare",
   },
   { 
     title: "Food & Restaurant", 
     description: "Grow with online ordering & delivery",
     image: sectorFood,
+    href: "/sectors/food-restaurant",
   },
   { 
     title: "Education", 
     description: "Attract more students online",
     image: sectorEducation,
+    href: "/sectors/education",
   },
   { 
     title: "Real Estate", 
     description: "Generate quality property leads",
     image: sectorRealestate,
+    href: "/sectors/realestate",
   },
   { 
     title: "E-commerce", 
     description: "Scale your online store",
     image: sectorEcommerce,
+    href: "/sectors/ecommerce",
   },
   { 
     title: "Hospitality", 
     description: "Increase hotel bookings",
     image: sectorHospitality,
+    href: "/sectors/hospitality",
   },
   { 
     title: "Automotive", 
     description: "Drive showroom visits",
     image: sectorAutomotive,
+    href: "/sectors/automotive",
   },
   { 
     title: "Fashion", 
     description: "Build brand awareness",
     image: sectorFashion,
+    href: "/sectors",
   },
 ];
 
@@ -90,33 +98,34 @@ const ServiceSectorsSection = () => {
         {/* Sectors Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {sectors.map((sector, index) => (
-            <motion.div
-              key={sector.title}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="group relative"
-            >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-purple to-brand-blue rounded-2xl opacity-0 group-hover:opacity-40 blur-sm transition-all duration-300" />
-              <div className="relative glass-strong rounded-2xl overflow-hidden h-full group-hover:bg-card/90 transition-colors">
-                {/* Image */}
-                <div className="relative h-40 overflow-hidden">
-                  <img 
-                    src={sector.image} 
-                    alt={sector.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+            <Link key={sector.title} to={sector.href}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="group relative cursor-pointer"
+              >
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-purple to-brand-blue rounded-2xl opacity-0 group-hover:opacity-40 blur-sm transition-all duration-300" />
+                <div className="relative glass-strong rounded-2xl overflow-hidden h-full group-hover:bg-card/90 transition-colors">
+                  {/* Image */}
+                  <div className="relative h-40 overflow-hidden">
+                    <img 
+                      src={sector.image} 
+                      alt={sector.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-4">
+                    <h3 className="font-bold text-foreground text-lg mb-1">{sector.title}</h3>
+                    <p className="text-sm text-muted-foreground">{sector.description}</p>
+                  </div>
                 </div>
-                
-                {/* Content */}
-                <div className="p-4">
-                  <h3 className="font-bold text-foreground text-lg mb-1">{sector.title}</h3>
-                  <p className="text-sm text-muted-foreground">{sector.description}</p>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 
