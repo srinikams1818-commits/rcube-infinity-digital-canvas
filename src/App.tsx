@@ -19,6 +19,13 @@ import EmailMarketingService from "./pages/services/EmailMarketingService";
 import VideoEditingService from "./pages/services/VideoEditingService";
 import PhotoEditingService from "./pages/services/PhotoEditingService";
 import GraphicDesignService from "./pages/services/GraphicDesignService";
+import HealthcareSector from "./pages/sectors/HealthcareSector";
+import FoodRestaurantSector from "./pages/sectors/FoodRestaurantSector";
+import EducationSector from "./pages/sectors/EducationSector";
+import RealEstateSector from "./pages/sectors/RealEstateSector";
+import EcommerceSector from "./pages/sectors/EcommerceSector";
+import HospitalitySector from "./pages/sectors/HospitalitySector";
+import AutomotiveSector from "./pages/sectors/AutomotiveSector";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +49,13 @@ const App = () => (
           <Route path="/services/photo-editing" element={<PhotoEditingService />} />
           <Route path="/services/graphic-design" element={<GraphicDesignService />} />
           <Route path="/sectors" element={<Sectors />} />
+          <Route path="/sectors/healthcare" element={<HealthcareSector />} />
+          <Route path="/sectors/food-restaurant" element={<FoodRestaurantSector />} />
+          <Route path="/sectors/education" element={<EducationSector />} />
+          <Route path="/sectors/realestate" element={<RealEstateSector />} />
+          <Route path="/sectors/ecommerce" element={<EcommerceSector />} />
+          <Route path="/sectors/hospitality" element={<HospitalitySector />} />
+          <Route path="/sectors/automotive" element={<AutomotiveSector />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="*" element={<NotFound />} />

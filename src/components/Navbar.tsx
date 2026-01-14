@@ -17,14 +17,13 @@ const services = [
 ];
 
 const sectors = [
-  { name: "Healthcare", href: "/sectors#healthcare" },
-  { name: "Food & Restaurant", href: "/sectors#food" },
-  { name: "Education", href: "/sectors#education" },
-  { name: "Real Estate", href: "/sectors#realestate" },
-  { name: "E-commerce", href: "/sectors#ecommerce" },
-  { name: "Hospitality", href: "/sectors#hospitality" },
-  { name: "Automotive", href: "/sectors#automotive" },
-  { name: "Fashion & Lifestyle", href: "/sectors#fashion" },
+  { name: "Healthcare", href: "/sectors/healthcare" },
+  { name: "Food & Restaurant", href: "/sectors/food-restaurant" },
+  { name: "Education", href: "/sectors/education" },
+  { name: "Real Estate", href: "/sectors/realestate" },
+  { name: "E-commerce", href: "/sectors/ecommerce" },
+  { name: "Hospitality", href: "/sectors/hospitality" },
+  { name: "Automotive", href: "/sectors/automotive" },
 ];
 
 const Navbar = () => {
